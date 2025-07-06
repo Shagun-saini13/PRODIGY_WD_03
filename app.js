@@ -5,5 +5,6 @@ let turnO= true; //playerX, playerO
 
 const winPatterns = {
     [0, 1, 2],
-    [0, 3, 6]
+    [0, 3, 6],
+    [0, 4, 8]
 }
