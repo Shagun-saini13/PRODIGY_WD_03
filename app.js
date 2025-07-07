@@ -3,6 +3,7 @@ let resetBtn = document.querySelectorAll("#reset-btn");
 
 let turnO= true; //playerX, playerO
 
+// Winning Patterns
 const winPatterns = [
     [0, 1, 2],
     [0, 3, 6],
@@ -24,6 +25,16 @@ boxes.forEach((box) => {
         else { //Player X
             box.innerText = "X";
             turnO = true;
+        }
+        box.disabled = true;
+
+        // Check Winner
+        const checkWinner = () => {
+            for(let pattern of winPatterns) {
+                let pos1Val = boxes[pattern[0]].innerText;
+                let pos2Val = boxes[pattern[1]].innerText;
+                let pos3Val = boxes[pattern[2]].innerText;
+            }
         }
     });
 });

@@ -32,9 +32,11 @@ body{
     border: none;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
     font-size: 8vmin;
-    color: #b0413e;
+    color: #b0413e; /*Symbol color*/
+    background-color: #ffffc7; /*box background color*/
 }
 
+/* reset button */
 #reset-btn {
     padding: 1rem;
     font-size: 1.25rem;
