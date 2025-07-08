@@ -1,9 +1,9 @@
 let boxes = document.querySelectorAll(".box");
 let resetBtn = document.querySelector("#reset-btn");
-// To access New Game
-let newGameBtn = document.querySelector("#new-btn");
+let newGameBtn = document.querySelector("#new-btn");  // To access New Game
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
+let turnText = document.querySelector("#turn-text");
 
 let turnO= true; //playerX, playerO
 let moveCount = 0; // To count moves
@@ -25,6 +25,7 @@ const resetGame = () => {
     moveCount = 0; /* Reset moveCount when starting a new game */
     enableBoxes();
     msgContainer.classList.add("hide");
+    turnText.innerText = "Turn: O"; // Reset turn display to "O" after reset
 }
 
 boxes.forEach((box) => {
@@ -32,16 +33,17 @@ boxes.forEach((box) => {
         if(turnO) { //player O
             box.innerText = "O";
             turnO = false;
+            turnText.innerText = "Turn: X"; // Update turn display
         }
         else { //Player X
             box.innerText = "X";
             turnO = true;
+            turnText.innerText = "Turn: O"; // Update turn display
         }
         box.disabled = true;
 
         moveCount++; /* Increment moveCount after every move */
-
-        // to check for a winner after every move
+        
         checkWinner();
     });
 });
@@ -63,14 +65,16 @@ const enableBoxes = () => {
 
 const showWinner = (winner) => {
     msg.innerText = `Congratulations, Winner is ${winner}`;
-    // Remove hide from msg Container
+    // Remove hide from msg Container to display Winner
     msgContainer.classList.remove("hide");
     disableBoxes();
+    turnText.innerText = ""; // Clear turn display on win
 }
 
 const showDraw = () => {
   msg.innerText = `Game is Draw!`;
   msgContainer.classList.remove("hide");
+  turnText.innerText = ""; // Clear turn display on draw
 };
 
 // Check Winner

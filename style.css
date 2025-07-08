@@ -32,7 +32,7 @@ body{
     border: none;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
     font-size: 8vmin;
-    color: #b0413e; /*Symbol color*/
+    color: #b0413e; /*Sign color*/
     background-color: #ffffc7; /*box background color*/
 }
 
@@ -73,4 +73,20 @@ body{
 
 .hide {
     display: none;
+}
+ 
+.turn-container {
+  margin: 1.5rem 0;
+}
+
+#turn-text {
+  color: #fff8dc; /* light creamy white */
+  font-size: 3.5vmin;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.75rem;
+  background-color: #376e6f; /* darker teal */
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
