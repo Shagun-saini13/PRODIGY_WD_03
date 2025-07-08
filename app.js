@@ -6,6 +6,7 @@ let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
 
 let turnO= true; //playerX, playerO
+let moveCount = 0; // To count moves
 
 // Winning Patterns
 const winPatterns = [
@@ -21,13 +22,13 @@ const winPatterns = [
 
 const resetGame = () => {
     turnO = true;
+    moveCount = 0; /* Reset moveCount when starting a new game */
     enableBoxes();
     msgContainer.classList.add("hide");
 }
 
 boxes.forEach((box) => {
     box.addEventListener("click", ()=> {
-        console.log("box was clicked");
         if(turnO) { //player O
             box.innerText = "O";
             turnO = false;
@@ -37,6 +38,8 @@ boxes.forEach((box) => {
             turnO = true;
         }
         box.disabled = true;
+
+        moveCount++; /* Increment moveCount after every move */
 
         // to check for a winner after every move
         checkWinner();
@@ -65,6 +68,11 @@ const showWinner = (winner) => {
     disableBoxes();
 }
 
+const showDraw = () => {
+  msg.innerText = `Game is Draw!`;
+  msgContainer.classList.remove("hide");
+};
+
 // Check Winner
 const checkWinner = () => {
     for(let pattern of winPatterns) {
@@ -79,8 +87,16 @@ const checkWinner = () => {
                     showWinner(pos1Val);
             }
         }
-    } 
-}
+    }
+    count(); 
+};
+
+const count = () => {
+  if (moveCount === 9) {
+    showDraw();
+    disableBoxes();
+  }
+};
 
 newGameBtn.addEventListener("click", resetGame);
 resetBtn.addEventListener("click", resetGame);
