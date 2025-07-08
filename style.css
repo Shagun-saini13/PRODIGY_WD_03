@@ -80,12 +80,12 @@ body{
 }
 
 #turn-text {
-  color: #fff8dc; /* light creamy white */
+  color: #fff8dc; 
   font-size: 3.5vmin;
   font-weight: 600;
   padding: 0.7rem 1.5rem;
   border-radius: 0.75rem;
-  background-color: #376e6f; /* darker teal */
+  background-color: #376e6f; 
   display: inline-block;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
